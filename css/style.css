@@ -294,15 +294,28 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 
 }
 .hero-actions { margin-top: var(--space-4); display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
 
-/* Rotating seal badge */
-.seal {
-  width: 190px; height: 190px;
-  position: relative;
+/* Hero brand logo (replaces the rotating seal with the real AHS Zone mark) */
+.hero-logo {
+  width: 240px; height: 240px;
   display: grid; place-items: center;
   justify-self: end;
 }
-.seal svg { width: 100%; height: 100%; animation: spin 44s linear infinite; }
-.seal-text { font-family: var(--font-serif); font-weight: 600; font-size: 1.6rem; color: var(--navy); }
+.hero-logo-img {
+  width: 240px; height: auto;
+  mix-blend-mode: multiply;                 /* white logo bg → cream */
+  animation: logoIn 0.9s var(--ease) both, heroFloat 6s ease-in-out 0.9s infinite;
+}
+@keyframes heroFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+/* Hero trust strip — social proof under the primary CTA */
+.hero-trust {
+  display: flex; flex-wrap: wrap; gap: var(--space-3);
+  margin-top: var(--space-3);
+  list-style: none; padding: 0;
+  font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-muted);
+}
+.hero-trust li { display: flex; align-items: baseline; gap: 6px; }
+.hero-trust strong { font-family: var(--font-serif); font-weight: 600; font-size: 1.05rem; color: var(--navy); }
 
 /* ---------- 7. SECTION SCAFFOLD ---------- */
 .section-head {
@@ -469,7 +482,7 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 
 
 /* ---------- 14. ANIMATIONS ---------- */
 @keyframes logoIn { from { opacity: 0; transform: translateY(-8px) scale(0.92); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes heroFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
 /* Scroll-reveal: hidden only when JS is available (.js on <html>).
    Without JS the content stays fully visible (graceful degradation). */
