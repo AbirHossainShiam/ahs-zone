@@ -1,8 +1,9 @@
 # AHS Zone — Website
 
 The official website for **AHS Zone**, a Bangladesh-based holding company.
-Built as a single, dependency-free static site (plain HTML + CSS + a little JS) so it
-is cheap to host (free on GitHub Pages) and easy to edit without a build step.
+Built as a dependency-free static site (plain **HTML5 + CSS3 + vanilla JavaScript**) so it
+is cheap to host (free on GitHub Pages, Netlify, or Cloudflare Pages) and easy to edit
+without a build step or framework.
 
 Live site: https://<your-username>.github.io/ahs-zone/  (set after first deploy)
 Custom domain (later): ahs-zone.com
@@ -13,9 +14,16 @@ Custom domain (later): ahs-zone.com
 
 ```
 ahs-zone/
-├── index.html              # The entire website (content + styles + scripts)
+├── index.html              # Semantic HTML5 markup (content + structure only)
+├── css/
+│   ├── style.css           # Design system: tokens, layout, components, animations
+│   └── responsive.css      # Tablet / mobile breakpoints
+├── js/
+│   └── main.js             # Minimal JS: mobile nav, scroll reveal, contact form
 ├── assets/
-│   └── logo.png            # Brand logo used in header and footer
+│   ├── images/
+│   │   └── logo.png        # Brand logo (header + footer)
+│   └── icons/              # Inline-style SVG icons (arrow, menu, mail, etc.)
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml      # Auto-deploys to GitHub Pages on every push to main
@@ -23,34 +31,48 @@ ahs-zone/
 └── README.md               # This file
 ```
 
-Everything lives in `index.html`. There is **no build step, no frameworks, no npm**.
-To change the site, you edit `index.html` (and drop new images in `assets/`).
+There is **no build step, no frameworks, no npm, no Tailwind/Bootstrap**.
+HTML, CSS, and JS are kept in separate files. To change the site, edit the file for
+that layer (markup → `index.html`, styles → `css/`, behaviour → `js/`).
+
+### Design system
+All colours, spacing, and typography live as CSS custom properties (`:root`) at the top
+of `css/style.css`:
+
+| Token        | Value     | Use                      |
+|--------------|-----------|--------------------------|
+| `--bg`       | `#F4F0E3` | Warm cream background    |
+| `--navy`     | `#16284A` | Deep navy — primary text |
+| `--brass`    | `#A88B5B` | Muted brass — accent     |
+
+Edit those variables to re-skin the whole site in one place.
 
 ---
 
 ## How to edit the website
 
-Open `index.html` in any text editor (VS Code, Notepad++, even Notepad). The file is
-organised into clearly labelled sections. Search for these markers to find what you want:
+Open the relevant file in any text editor (VS Code, Notepad++, even Notepad).
 
-| You want to change…            | Search for this comment / text                          |
-|--------------------------------|----------------------------------------------------------|
-| Top navigation links           | `<!-- ===== NAV =====` or `<nav class="links">`         |
-| Hero headline / sub-text       | `class="cover-title"` / `class="cover-sub"`             |
-| The "Founded / Mandate / Now"  | `class="cover-meta"`                                    |
-| About the Group section        | `id="about-group"`                                       |
-| Companies list                | `id="companies"` (cards with `company-card`)            |
-| News & Updates                | `id="news"`                                              |
-| Contact form email            | `ahszone.info@gmail.com`                                |
-| Colours / fonts               | `:root{` near the top of the `<style>` block            |
+| You want to change…            | File / search for                                        |
+|--------------------------------|-----------------------------------------------------------|
+| Page content / text            | `index.html` (sections are labelled `<!-- ===== … -->`)  |
+| Colours / spacing / fonts      | `css/style.css` → `:root` tokens at the very top         |
+| Responsive / mobile rules      | `css/responsive.css`                                      |
+| Navigation / menu behaviour    | `js/main.js` → `initMobileNav()`                          |
+| Hero headline / sub-text       | `index.html` → `class="hero-title"` / `hero-lede`         |
+| The "Founded / Mandate / Now"  | `index.html` → `class="hero-meta"`                        |
+| About the Group section        | `index.html` → `id="about"`                               |
+| Companies list                 | `index.html` → `id="companies"` (cards with `company-card`) |
+| News & Updates                 | `index.html` → `id="news"`                                |
+| Contact form email             | `ahszone.info@gmail.com` (in `index.html` and `js/main.js`) |
 
 After editing, commit and push (see "Updating after publish" below). The site
 redeploys automatically within ~30–60 seconds.
 
 ### Logo
-The logo is `assets/logo.png`. Replace that file (same name) to swap the logo.
+The logo is `assets/images/logo.png`. Replace that file (same name) to swap the logo.
 It is placed with `mix-blend-mode: multiply` so its white background disappears into
-the beige page. If you ever add a dark section, give the logo a transparent background
+the cream page. If you ever add a dark section, give the logo a transparent background
 instead, or it will vanish.
 
 ---
