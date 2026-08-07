@@ -1,0 +1,16 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# Local preview / logs
+*.log
+
+# Build output (only if you add a build step later)
+/site
+/dist
+_build
