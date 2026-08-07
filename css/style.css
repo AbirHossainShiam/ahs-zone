@@ -479,7 +479,31 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 
 .footer-logo { height: 64px; width: auto; }
 .footer-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); max-width: 48ch; }
 
-/* ---------- 13b. SUB-PAGE: UniBridge (destinations / process / testimonials) ---------- */
+/* Floating "back to AHS Zone" button — fixed, always reachable (even at page bottom) */
+.floating-back {
+  position: fixed;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--navy);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 1px solid var(--brass);
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.floating-back .icon { width: 16px; height: 16px; filter: brightness(0) invert(1); }
+.floating-back:hover { background: var(--navy-soft); transform: translateY(-2px); }
+
+
 /* Back link in the sub-brand banner */
 .subbrand-back {
   margin-left: auto;
