@@ -479,6 +479,59 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 
 .footer-logo { height: 64px; width: auto; }
 .footer-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); max-width: 48ch; }
 
+/* ---------- 13b. SUB-PAGE: UniBridge (destinations / process / testimonials) ---------- */
+/* Back link in the sub-brand banner */
+.subbrand-back {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 2px;
+}
+.subbrand-back:hover { color: var(--brass); }
+
+/* Destination country cards */
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+.dest-card {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.dest-card:hover { transform: translateY(-3px); border-color: var(--brass); box-shadow: var(--shadow-md); }
+.dest-flag { font-size: 1.6rem; line-height: 1; display: block; margin-bottom: 10px; }
+.dest-card h3 { font-size: 1.05rem; margin: 0 0 4px; color: var(--navy); }
+.dest-meta { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-muted); margin: 0; }
+
+/* Process list (reuses .stat-block) */
+.stat-block .stat + .stat { margin-top: var(--space-2); }
+.stat-block .stat-num { font-size: 1.8rem; }
+
+/* Testimonials */
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+.testi {
+  margin: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--brass);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+.testi blockquote { margin: 0 0 var(--space-2); font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.5; color: var(--ink); }
+.testi figcaption { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-muted); }
+.testi figcaption strong { color: var(--navy); }
+
 /* ---------- 14. ANIMATIONS ---------- */
 @keyframes logoIn { from { opacity: 0; transform: translateY(-8px) scale(0.92); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @keyframes spin { to { transform: rotate(360deg); } }
