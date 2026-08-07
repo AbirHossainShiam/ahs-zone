@@ -175,7 +175,6 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 
 .brandmark-logo {
   height: 46px;
   width: auto;
-  mix-blend-mode: multiply;             /* drops the white logo bg into the cream */
   animation: logoIn 0.8s var(--ease) both;
   transition: transform var(--dur) var(--ease);
 }
@@ -305,7 +304,6 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 
 .seal-logo {
   position: relative;
   width: 122px; height: auto;
-  mix-blend-mode: multiply;        /* white logo bg → cream */
 }
 
 /* Hero trust strip — social proof under the primary CTA */
@@ -478,7 +476,7 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 
   display: flex; align-items: center; justify-content: space-between;
   flex-wrap: wrap; gap: var(--space-2);
 }
-.footer-logo { height: 64px; width: auto; mix-blend-mode: multiply; }
+.footer-logo { height: 64px; width: auto; }
 .footer-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); max-width: 48ch; }
 
 /* ---------- 14. ANIMATIONS ---------- */
